@@ -1,9 +1,9 @@
 import { Button } from "@mui/material"
-import { useAppThemeContext } from "../../contexts"
+import { useDrawerContext } from "../../contexts"
 
 export const ToggleThemeButton = () => {
 
-    const { toggleTheme } = useAppThemeContext()
+    const { toggleDrawerOpen } = useDrawerContext()
 
-    return (<Button variant="contained" onClick={toggleTheme}>testes</Button>)
+    return (<Button variant="contained" onClick={toggleDrawerOpen}>menu</Button>)
 }
