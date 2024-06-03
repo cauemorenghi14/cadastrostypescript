@@ -10,6 +10,7 @@ import {
 import { useDrawerContext } from "../../contexts";
 import { Outlet } from "react-router-dom";
 import { ListItemLink } from "./ListItemLink";
+import { ToggleThemeButton } from "../toggle-theme-button/ToggleThemeButton";
 
 
 export const MenuLateral = () => {
@@ -47,10 +48,12 @@ export const MenuLateral = () => {
 
           <Divider />
 
-          <Box flex={1}>
+          <Box flex={1} display="flex" flexDirection="column" justifyContent="space-between">
             <List component="nav">
               <ListItemLink icon="home" label="Página Inicial" onClick={toggleDrawerOpen} to="/"/>
+              <ListItemLink icon="person" label="Página de Usuários" onClick={toggleDrawerOpen} to="/usuários"/>
             </List>
+            <ToggleThemeButton />
           </Box>
         </Box>
       </Drawer>
