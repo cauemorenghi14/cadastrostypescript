@@ -3,22 +3,16 @@ import {
   Box,
   Divider,
   Drawer,
-  Icon,
   List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { HouseOutlined } from "@mui/icons-material";
 import { useDrawerContext } from "../../contexts";
+import { Outlet } from "react-router-dom";
+import { ListItemLink } from "./ListItemLink";
 
-interface IMenuLateralProps {
-  children: React.ReactNode;
-}
 
-export const MenuLateral = ({ children }: IMenuLateralProps) => {
+export const MenuLateral = () => {
   const theme = useTheme();
 
   const smDown = useMediaQuery(theme.breakpoints.down("sm")); //se a tela estiver abaixo de sm, smDown = true
@@ -55,21 +49,14 @@ export const MenuLateral = ({ children }: IMenuLateralProps) => {
 
           <Box flex={1}>
             <List component="nav">
-              <ListItemButton>
-                <ListItemIcon>
-                  <Icon>
-                    <HouseOutlined />
-                  </Icon>
-                </ListItemIcon>
-                <ListItemText primary="Página Inicial" />
-              </ListItemButton>
+              <ListItemLink icon="home" label="Página Inicial" onClick={toggleDrawerOpen} to="/"/>
             </List>
           </Box>
         </Box>
       </Drawer>
 
       <Box height="100vh" marginLeft={smDown ? 0 : theme.spacing(28)}>
-        {children}
+        <Outlet />
       </Box>
     </>
   );

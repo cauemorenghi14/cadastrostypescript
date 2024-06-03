@@ -1,9 +1,16 @@
 import { createBrowserRouter } from "react-router-dom"
-import { ToggleThemeButton } from "../shared/components/ToggleThemeButton"
+import Home from "../pages/Home"
+import { MenuLateral } from "../shared/components"
 
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <ToggleThemeButton />
+        element: <MenuLateral />,
+        children: [
+            {
+                path: '',
+                element: <Home />
+            }
+        ]
     }
 ])
